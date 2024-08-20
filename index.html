@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>  
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rinkimų apžvalga</title>
+    <link rel="icon" href="includes/compass.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="includes/leaflet.css">
+    <link rel="stylesheet" href="includes/style.css">
+    <script src="includes/leaflet.js"></script>
+    <script src="includes/csvToArray.v2.1.min.js"></script>
+    <script src="includes/autocomplete.min.js"></script>
+    <script src="includes/zingchart.min.js"></script>
+    <link rel="modulepreload" href="includes/polyline.min.js">
+    <meta property="og:title" content="Rinkimų apžvalga" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://bucaneer.github.io/rinkimai/includes/compass.png" />
+    <meta property="og:description" content="Kelių pastarųjų Seimo ir EP rinkimų apžvalga viename žemėlapyje" />
+    <meta property="og:locale" content="lt_LT" />
+  </head>
+  <body>
+    <main>
+      <section id="menu-bar" class="text-bar">
+        <div class="bar-content">
+          <a class="plain reset" href="#" class="nostyle"><h1 class="page-title" data-display-template="welcome-template">Rinkimų apžvalga</h1></a>
+          <ul class="theme-list">
+            <li>
+              <h5>Politinės vertybės</h5>
+            </li>
+            <li data-theme="theme_lrecon">
+              <input id="theme_lrecon" type="radio" name="theme" value="theme_lrecon" checked>
+              <label for="theme_lrecon">Rinka ir valstybė</label>
+            </li>
+            <li data-theme="theme_galtan">
+              <input id="theme_galtan" type="radio" name="theme" value="theme_galtan">
+              <label for="theme_galtan">Visuomenė ir kultūra</label>
+            </li>
+            <li data-theme="theme_compass">
+              <input id="theme_compass" type="radio" name="theme" value="theme_compass">
+              <label for="theme_compass">Politinis kompasas</label>
+            </li>
+            <li data-theme="theme_max_bias_value">
+              <input id="theme_max_bias_value" type="radio" name="theme" value="theme_max_bias_value">
+              <label for="theme_max_bias_value">Išskirtiniausia vertybė</label>
+            </li>
+            <li>
+              <h5>Partijų populiarumas</h5>
+            </li>
+            <li data-theme="theme_top_party">
+              <input id="theme_top_party" type="radio" name="theme" value="theme_top_party">
+              <label for="theme_top_party">Populiariausia partija</label>
+            </li>
+            <li data-theme="theme_max_bias_party">
+              <input id="theme_max_bias_party" type="radio" name="theme" value="theme_max_bias_party">
+              <label for="theme_max_bias_party">Išskirtiniausia partija</label>
+            </li>
+            <li data-theme="theme_TURNOUT">
+              <input id="theme_TURNOUT" type="radio" name="theme" value="theme_TURNOUT">
+              <label for="theme_TURNOUT">Rinkėjų aktyvumas</label>
+            </li>
+            <li data-theme="theme_LSDP">
+              <input id="theme_LSDP" type="radio" name="theme" value="theme_LSDP">
+              <label for="theme_LSDP" title="Lietuvos socialdemokratų partija">LSDP</label>
+            </li>
+            <li data-theme="theme_TS-LKD">
+              <input id="theme_TS-LKD" type="radio" name="theme" value="theme_TS-LKD">
+              <label for="theme_TS-LKD" title="Tėvynės sąjunga - Lietuvos krikščionys demokratai">TS-LKD</label>
+            </li>
+            <li data-theme="theme_DSVL">
+              <input id="theme_DSVL" type="radio" name="theme" value="theme_DSVL">
+              <label for="theme_DSVL" title='Demokratų sąjunga "Vardan Lietuvos"'>DSVL</label>
+            </li>
+            <li data-theme="theme_LVŽS">
+              <input id="theme_LVŽS" type="radio" name="theme" value="theme_LVŽS">
+              <label for="theme_LVŽS" title="Lietuvos valstiečių ir žaliųjų sąjunga">LVŽS</label>
+            </li>
+            <li data-theme="theme_LS">
+              <input id="theme_LS" type="radio" name="theme" value="theme_LS">
+              <label for="theme_LS" title="Liberalų sąjūdis">LS</label>
+            </li>
+            <li data-theme="theme_DP">
+              <input id="theme_DP" type="radio" name="theme" value="theme_DP">
+              <label for="theme_DP" title="Darbo partija">DP</label>
+            </li>
+            <li data-theme="theme_LP">
+              <input id="theme_LP" type="radio" name="theme" value="theme_LP">
+              <label for="theme_LP" title="Laivės partija">LP</label>
+            </li>
+            <li data-theme="theme_LT">
+              <input id="theme_LT" type="radio" name="theme" value="theme_LT">
+              <label for="theme_LT" title="Laisvė ir teisingumas">LT</label>
+            </li>
+            <li data-theme="theme_LLRA-KŠS">
+              <input id="theme_LLRA-KŠS" type="radio" name="theme" value="theme_LLRA-KŠS">
+              <label for="theme_LLRA-KŠS" title="Lietuvos lenkų rinkimų akcija - Krikščioniškų šeimų sąjunga">LLRA-KŠS</label>
+            </li>
+            <li data-theme="theme_TTS">
+              <input id="theme_TTS" type="radio" name="theme" value="theme_TTS">
+              <label for="theme_TTS" title="Tautos ir teisingumo sąjunga">TTS</label>
+            </li>
+            <li data-theme="theme_LRP">
+              <input id="theme_LRP" type="radio" name="theme" value="theme_LRP">
+              <label for="theme_LRP" title="Lietuvos regionų partija">LRP</label>
+            </li>
+            <li data-theme="theme_TK">
+              <input id="theme_TK" type="radio" name="theme" value="theme_TK">
+              <label for="theme_TK" title="Taikos koalicija (Lietuvos krikščioniškosios demokratijos partija, Žemaičių partija)">TK</label>
+            </li>
+            <li data-theme="theme_LŽP">
+              <input id="theme_LŽP" type="radio" name="theme" value="theme_LŽP">
+              <label for="theme_LŽP" title="Lietuvos žaliųjų partija">LŽP</label>
+            </li>
+            <li data-theme="theme_NS">
+              <input id="theme_NS" type="radio" name="theme" value="theme_NS">
+              <label for="theme_NS" title="Nacionalinis sąjūdis">NS</label>
+            </li>
+            <li data-theme="theme_LLP">
+              <input id="theme_LLP" type="radio" name="theme" value="theme_LLP">
+              <label for="theme_LLP" title="Lietuvos liaudies partija">LLP</label>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="map"></section>
+      <div id="overlay"><div class="spinner"><div></div><div></div><div></div></div></div>
+      <section id="content-bar" class="text-bar">
+        <div class="bar-content">
+          <h2 class="section-title theme-description"><span data-field="theme_title">Kraunama</span></h2>
+          <div class="theme-description" data-field="theme_description"><p>Duomenys kraunami, palaukite...</p></div>
+          
+          <h2 class="section-title area-description" style="visibility:hidden"><span data-field="area_title"></span></h2>
+          <p class="area-description"><span data-field="area_tip"></span></p>
+          <div id="area-plot" class="area-description"></div>
+          <div class="source">
+            <a href="https://github.com/bucaneer/rinkimai">Atviras kodas</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="includes/script.js"></script>
+  </body>
+</html>
