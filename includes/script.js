@@ -74,6 +74,7 @@ const election_options = [
   { value: "2019_EP", label: "2019 m. EP rinkimuose" },
   { value: "2020_LRS", label: "2020 m. Seimo rinkimuose" },
   { value: "2024_EP", label: "2024 m. EP rinkimuose" },
+  { value: "2024_LRS", label: "2024 m. Seimo rinkimuose" },
 ];
 
 const election_labels = {
@@ -82,6 +83,7 @@ const election_labels = {
   "2019_EP": "2019 EP",
   "2020_LRS": "2020 Seimo",
   "2024_EP": "2024 EP",
+  "2024_LRS": "2024 Seimo",
 };
 
 const absolute_values_options = [
@@ -541,6 +543,7 @@ function getThemeDescription(name) {
     case "theme_LŽP":
     case "theme_LLP":
     case "theme_TK":
+    case "theme_NA":
       base = theme_descriptions["party"];
       substitutions = {
         PARTY_ABBR: theme_key,

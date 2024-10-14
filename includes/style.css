@@ -29,6 +29,7 @@
   --c-LŽP:      hsl( 83,  56%, 51%);
   --c-LLP:      hsl( 36,  93%, 60%);
   --c-TK:       hsl(123,  44%, 46%);
+  --c-NA:       hsl( 14,  66%, 33%);
 
   --c-TURNOUT:  hsl(240, 100%, 60%);
 
@@ -115,6 +116,10 @@
 
 [data-theme="theme_TK"] {
   --theme-color: var(--c-TK);
+}
+
+[data-theme="theme_NA"] {
+  --theme-color: var(--c-NA);
 }
 
 [data-theme="theme_lrecon"] {

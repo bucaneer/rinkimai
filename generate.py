@@ -95,8 +95,8 @@ urls = {
     "id": "2146",
   },
   "2024_LRS": {
-    "dir": None,
-    "id": None,
+    "dir": "1544/1/",
+    "id": "2150",
   },
 }
 
@@ -206,7 +206,23 @@ name_map = {
     "14. Tėvynės sąjunga-Lietuvos krikščionys demokratai": "TS-LKD",
     "15. Nacionalinis susivienijimas": "NS",
   },
-  "2024_LRS": {},
+  "2024_LRS": {
+    "1. Tautos ir teisingumo sąjunga (centristai, tautininkai)": "TTS",
+    "2. Nacionalinis susivienijimas": "NS",
+    "3. Lietuvos socialdemokratų partija": "LSDP",
+    "4. Lietuvos žaliųjų partija": "LŽP",
+    "5. Lietuvos liaudies partija": "LLP",
+    "6. Lietuvos regionų partija": "LRP",
+    "8. Lietuvos valstiečių ir žaliųjų sąjunga": "LVŽS",
+    "9. Taikos koalicija (Darbo partija, Lietuvos krikščioniškosios demokratijos partija, Žemaičių partija)": "TK",
+    "10. Partija „Laisvė ir teisingumas“": "LT",
+    "11. Demokratų sąjunga „Vardan Lietuvos“": "DSVL",
+    "12. Politinė partija „Nemuno Aušra“": "NA",
+    "13. Tėvynės sąjunga-Lietuvos krikščionys demokratai": "TS-LKD",
+    "14. Liberalų sąjūdis": "LS",
+    "16. Laisvės partija": "LP",
+    "17. Lietuvos lenkų rinkimų akcija-Krikščioniškų šeimų sąjunga": "LLRA-KŠS",
+  },
 }
 
 party_alias = {
@@ -229,7 +245,9 @@ party_alias = {
   "LLRA-KŠS": {
     "2019_EP": ["VTB"],
   },
-  "DP": {},
+  "DP": {
+    "2024_LRS": ["TK"],
+  },
   "TTS": {
     "2020_LRS": ["CP-T"],
     "2019_EP": ["LCP"],
@@ -246,6 +264,7 @@ party_alias = {
     "2023_ST": ["ŽP"],
     "2019_ST": ["LKDP"],
   },
+  "NA": {},
 }
 
 TOTAL = 'TOTAL'
@@ -437,6 +456,10 @@ party_values_MB = {
       LRECON: 0.8571 - 2,
       GALTAN: 2 - 1.7500,
     },
+    "2024_LRS": {
+      LRECON: 0.7143 - 2,
+      GALTAN: 2 - 1.1250,
+    }
   },
   "NS": {
     2020: {
@@ -446,6 +469,10 @@ party_values_MB = {
     2024: {
       LRECON: 1.7143 - 2,
       GALTAN: 2 - 0.0000,
+    },
+    "2024_LRS": {
+      LRECON: 1.0000 - 2,
+      GALTAN: 2 - 0.1250,
     },
   },
   "TS-LKD": {
@@ -465,6 +492,10 @@ party_values_MB = {
       LRECON: 2.1429 - 2,
       GALTAN: 2 - 1.5000,
     },
+    "2024_LRS": {
+      LRECON: 2.4286 - 2,
+      GALTAN: 2 - 1.3750,
+    },
   },
   "LP": {
     2020: {
@@ -474,6 +505,10 @@ party_values_MB = {
     2024: {
       LRECON: 2.5714 - 2,
       GALTAN: 2 - 2.7500,
+    },
+    "2024_LRS": {
+      LRECON: 3.5714 - 2,
+      GALTAN: 2 - 3.1250,
     },
   },
   "LŽP": {
@@ -493,6 +528,10 @@ party_values_MB = {
       LRECON: 1.5714 - 2,
       GALTAN: 2 - 3.5000,
     },
+    "2024_LRS": {
+      LRECON: 0.8571 - 2,
+      GALTAN: 2 - 2.7500,
+    },
   },
   "LSDP": {
     2016: {
@@ -510,6 +549,10 @@ party_values_MB = {
     2024: {
       LRECON: 0.5714 - 2,
       GALTAN: 2 - 2.8750,
+    },
+    "2024_LRS": {
+      LRECON: 0.7143 - 2,
+      GALTAN: 2 - 2.3750,
     },
   },
   "KS": {
@@ -535,6 +578,10 @@ party_values_MB = {
       LRECON: 1.8571 - 2,
       GALTAN: 2 - 2.1429,
     },
+    "2024_LRS": {
+      LRECON: 3.5714 - 2,
+      GALTAN: 2 - 2.8750,
+    }
   },
   "AMT": {
     2019: {
@@ -560,6 +607,10 @@ party_values_MB = {
     2020: {
       LRECON: 1.1667 - 2,
       GALTAN: 2 - 0.8750,
+    },
+    2024: { # LRS
+      LRECON: 1.0000 - 2,
+      GALTAN: 2 - 0.3750,
     },
   },
   "LSDDP": {
@@ -657,6 +708,10 @@ party_values_MB = {
       LRECON: 3.0000 - 2,
       GALTAN: 2 - 2.7500,
     },
+    2024: { # LRS
+      LRECON: 2.7143 - 2,
+      GALTAN: 2 - 1.0000,
+    }
   },
   "LV": {
     2020: {
@@ -692,6 +747,12 @@ party_values_MB = {
       GALTAN: 2 - 4 * 14.0000 / 32.0,
     },
   },
+  "NA": {
+    2024: { # LRS
+      LRECON: 1.2857 - 2,
+      GALTAN: 2 - 0.7500,
+    }
+  }
 }
 
 election_dates = {
